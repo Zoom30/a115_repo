@@ -61,8 +61,10 @@ def evaluate_money(wallet_dict, currency, num):
     for key, value in wallet_dict.items():
         if currency == key and value >= num:
             amount_spent[key] = num
+            break
         elif currency == key and value < num:
             amount_spent[key] = value
+            break
         else:
             amount_spent[currency] = "Currency not listed"
     print(amount_spent)
