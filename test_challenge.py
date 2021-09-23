@@ -19,13 +19,13 @@ class TestSums(unittest.TestCase):
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[4], target="ab"), second=(0, 1))
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[5], target=10), second=(0, 3))
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[6], target=45), second=None)
+        self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[1], target="text"), second=None)
 
 
 
     def test_types(self):
         self.assertRaises(TypeError, tuple_added, "daniel", 90)
         self.assertRaises(TypeError, tuple_added, 389, 40)
-        # self.assertRaises(TypeError, tuple_added, self.SAMPLE_LISTS[0], "text output")
 
     if __name__ == "__main__":
         unittest.main()
