@@ -8,7 +8,8 @@ class TestSums(unittest.TestCase):
                     [0, 0, 0, 0],
                     [5, 3, 0, 1],
                     ["a", "b", "c"],
-                    [4.3, 10.2, 9.9, 5.7]]
+                    [4.3, 10.2, 9.9, 5.7],
+                    []]
 
     def test_result(self):
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[0], target=26), second=(2, 3))
@@ -17,11 +18,14 @@ class TestSums(unittest.TestCase):
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[3], target=0), second=None)
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[4], target="ab"), second=(0, 1))
         self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[5], target=10), second=(0, 3))
+        self.assertEqual(tuple_added(nums=self.SAMPLE_LISTS[6], target=45), second=None)
+
 
 
     def test_types(self):
         self.assertRaises(TypeError, tuple_added, "daniel", 90)
         self.assertRaises(TypeError, tuple_added, 389, 40)
+        # self.assertRaises(TypeError, tuple_added, self.SAMPLE_LISTS[0], "text output")
 
     if __name__ == "__main__":
         unittest.main()
