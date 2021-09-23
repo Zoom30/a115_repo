@@ -15,7 +15,7 @@ class Character:
 superman = Character()
 superman.name = "Clark"
 superman.age = 36
-superman.date_of_birth = datetime.date(year=1986, month=3, day=15)
+superman.date_of_birth = datetime.date(month=3, day=29, year=1985)
 # print(type(ironman.date_of_birth))
 # print(type(datetime.datetime.now()))
 age = (datetime.datetime.now().date() - superman.date_of_birth)
