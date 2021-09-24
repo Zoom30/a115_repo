@@ -7,5 +7,3 @@ def tuple_added(nums, target):
                 if nums[i] + nums[j] == target:
                     return i, j
 
-
-print(tuple_added(2.4, target="sui"))
