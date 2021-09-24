@@ -1,5 +1,6 @@
 import datetime
-from typing import Dict, Union
+from typing import Dict, Union, Any
+import mypy
 
 
 class Character:
@@ -9,8 +10,8 @@ class Character:
         self.date_of_birth: datetime = datetime.datetime.now()
         self.net_worth: float = 0
         self.family_members: list[str] = []
-        self.superpowers: Union[Dict, None] = None
-        self.wallet: Union[Dict, None] = {}
+        self.superpowers: Dict[str, Any] = None
+        self.wallet: Dict[Any, Any] = {}
 
 
 superman = Character()
@@ -64,11 +65,11 @@ def evaluate_money(wallet_dict: dict, currency: int, num: int) -> dict:
             amount_spent[key] = value
             break
         else:
-            amount_spent[currency] = "Currency not listed"
+            amount_spent[currency] = 0
     return amount_spent
 
 
-currency_input = input("specify the currency type: ")
+currency_input = int(input("specify the currency type: "))
 amount = int(input("How much do you want to spend: "))
 evaluate_money(wallet_dict=superman.wallet, currency=currency_input, num=amount)
 evaluate_superpower(superman.superpowers, 45)
