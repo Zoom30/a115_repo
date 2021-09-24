@@ -1,18 +1,5 @@
+from blueprint_superhero import *
 import datetime
-from typing import Dict, Union, Any
-import mypy
-
-
-class Character:
-    def __init__(self):
-        self.name: str = ""
-        self.age: float = 0
-        self.date_of_birth: datetime = datetime.datetime.now()
-        self.net_worth: float = 0
-        self.family_members: list[str] = []
-        self.superpowers: Dict[str, Any] = None
-        self.wallet: Dict[Any, Any] = {}
-
 
 superman = Character()
 superman.name = "Clark"
@@ -49,27 +36,7 @@ wallet: dict = {"dollars": 170, "pounds": 50, "euros": 100}
 superman.wallet.update(wallet)
 print(superman.wallet)
 
-
-def evaluate_superpower(dict_of_sp: dict, value: int) -> list:
-    list_of_sp = [(key, _value) for key, _value in dict_of_sp.items() if _value >= value]
-    return list_of_sp
-
-
-def evaluate_money(wallet_dict: dict, currency: int, num: int) -> dict:
-    amount_spent = {}
-    for key, value in wallet_dict.items():
-        if currency == key and value >= num:
-            amount_spent[key] = num
-            break
-        elif currency == key and value < num:
-            amount_spent[key] = value
-            break
-        else:
-            amount_spent[currency] = 0
-    return amount_spent
-
-
-currency_input = int(input("specify the currency type: "))
+currency_input = input("specify the currency type: ")
 amount = int(input("How much do you want to spend: "))
-evaluate_money(wallet_dict=superman.wallet, currency=currency_input, num=amount)
-evaluate_superpower(superman.superpowers, 45)
+print(evaluate_money(wallet_dict=superman.wallet, currency=currency_input, num=amount))
+print(evaluate_superpower(superman.superpowers, 45))
