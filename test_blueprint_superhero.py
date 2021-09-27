@@ -51,7 +51,15 @@ class MyTestCase(unittest.TestCase):
         assert (evaluate_superpower(dict_of_sp=self.SAMPLE_DICTIONARY, value=100)) == []
 
     def test_evaluate_money_with_valid_dict_and_num(self):
-        assert ()
+        assert (evaluate_money(wallet_dict=self.SAMPLE_WALLET, currency="Dollars", num=20)) == {"Dollars": 20}
+
+    def test_evaluate_superpower_raising_attrib_err(self):
+        with pytest.raises(AttributeError):
+            evaluate_superpower(dict_of_sp="text", value=20)
+
+    def test_evaluate_superpower_raise_type_err(self):
+        with pytest.raises(TypeError):
+            evaluate_superpower(dict_of_sp=self.SAMPLE_DICTIONARY, value="text")
 
 
 if __name__ == '__main__':
